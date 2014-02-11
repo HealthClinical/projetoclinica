@@ -1,0 +1,23 @@
+import unittest
+from should_dsl import should
+from paciente import Paciente
+
+
+class pacienteSpec(unittest.TestCase):
+	def it_creates_a_Paciente_object(self):
+		paciente = Paciente('001', 'Manoel', 'Rua A', '12', 'Centro', 'Campos', 'RJ', '98213484', '03945698778', '056568311', '12/03/83', '001')
+		paciente.codPaciente |should| equal_to('001')
+		paciente.nome |should| equal_to('Manoel')
+		paciente.rua |should| equal_to('Rua A')
+		paciente.numero |should| equal_to('12')
+		paciente.bairro |should| equal_to('Centro')
+		paciente.cidade |should| equal_to('Campos')
+		paciente.uf |should| equal_to('RJ')
+		paciente.telefone |should| equal_to('98213484')
+		paciente.cpf |should| equal_to('03945698778')
+		paciente.rg |should| equal_to('056568311')
+		paciente.dataNasc |should| equal_to('12/03/83')
+		paciente.convenio |should| equal_to('001')
+		
+		
+		
