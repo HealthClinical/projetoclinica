@@ -5,3 +5,6 @@ class Exame:
 		self.data = data
 		self.observacao = observacao
 		self.consulta = consulta
+
+	
+
