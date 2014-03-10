@@ -1,0 +1,63 @@
+import unittest
+from should_dsl import should
+from consulta import Consulta
+from convenio import Convenio
+from prontuario import Prontuario
+from medico import Medico
+from consultorio import Consultorio
+from paciente import Paciente
+
+class consultaSpec(unittest.TestCase):
+	def it_creates_a_Consulta_object(self):
+		
+		convenio = Convenio('001', 'Empresa', 'Unimed')
+		prontuario = Prontuario('001', 'historico', '001')
+		medico = Medico('001', 'Hugo', 'Rua B', '10', 'Centro', 'SJB', 'RJ', '98562312','00100200379', '08956782', '1245', 'pediatra', '11/05/1980')
+		paciente = Paciente('001', 'Manoel', 'Rua A', '12', 'Centro', 'Campos', 'RJ', '98213484', '03945698778', '056568311', '12/03/83', convenio, prontuario)
+		
+		consultorio = Consultorio('001','103','Pediatria')
+		
+		
+				
+		consulta = Consulta('001',paciente, medico, consultorio, prontuario,'18/02/2014', '13:00', 'Bom')
+		consulta.codConsulta |should| equal_to('001')
+		consulta.codPaciente |should| equal_to(paciente)
+		consulta.codMedico |should| equal_to(medico)
+		consulta.codConsultorio |should| equal_to(consultorio)
+		consulta.codProntuario |should| equal_to(prontuario)
+		consulta.data |should| equal_to('18/02/2014')
+		consulta.hora |should| equal_to('13:00')
+		consulta.observacao |should| equal_to('Bom')
+
+
+	def it_inserir_pacientes(self): #teste
+	
+		convenio = Convenio('001', 'Empresa', 'Unimed')		
+		paciente = Paciente('001', 'Manoel', 'Rua A', '12', 'Centro', 'Campos', 'RJ', '98213484', '03945698778', '056568311', '12/03/83', convenio, prontuario)		
+		consulta = Consulta('001',paciente, medico, consultorio, prontuario,'18/02/2014', '13:00', 'Bom')
+		prontuario = Prontuario('001', 'historico', '001')		
+		
+		
+
+		consulta.inserirPaciente(paciente)#testando o metodo
+		(paciente in consulta.pacientes) |should| equal_to(True) #verifica se paciente esta na lista de consulta
+
+
+	def it_verificar_pacientes(self):
+
+		convenio = Convenio('001', 'Empresa', 'Unimed')
+		prontuario = Prontuario('001', 'historico', '001')	
+		paciente = Paciente('001', 'Manoel', 'Rua A', '12', 'Centro', 'Campos', 'RJ', '98213484', '03945698778', '056568311', '12/03/83', convenio, prontuario)
+		medico = Medico('001', 'Hugo', 'Rua B', '10', 'Centro', 'SJB', 'RJ', '98562312','00100200379', '08956782', '1245', 'pediatra', '11/05/1980')
+		consulta = Consulta('001',paciente, medico, consultorio, prontuario,'18/02/2014', '13:00', 'Bom')
+			
+		
+		
+
+		consulta.inserirPaciente(paciente)#testando o metodo
+		consulta.verificarPaciente(paciente) |should| equal_to(True) #verifica se paciente esta na lista de consulta
+
+
+		
+
+	

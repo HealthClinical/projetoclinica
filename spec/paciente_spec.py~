@@ -1,11 +1,14 @@
 import unittest
 from should_dsl import should
 from paciente import Paciente
-
+from convenio import Convenio
+from prontuario import Prontuario
 
 class pacienteSpec(unittest.TestCase):
 	def it_creates_a_Paciente_object(self):
-		paciente = Paciente('001', 'Manoel', 'Rua A', '12', 'Centro', 'Campos', 'RJ', '98213484', '03945698778', '056568311', '12/03/83', '001')
+		convenio = Convenio('001', 'Empresa', 'Unimed')
+		prontuario = Prontuario('001', 'historico', '001')
+		paciente = Paciente('001', 'Manoel', 'Rua A', '12', 'Centro', 'Campos', 'RJ', '98213484', '03945698778', '056568311', '12/03/83', convenio, prontuario)
 		paciente.codPaciente |should| equal_to('001')
 		paciente.nome |should| equal_to('Manoel')
 		paciente.rua |should| equal_to('Rua A')
@@ -17,7 +20,8 @@ class pacienteSpec(unittest.TestCase):
 		paciente.cpf |should| equal_to('03945698778')
 		paciente.rg |should| equal_to('056568311')
 		paciente.dataNasc |should| equal_to('12/03/83')
-		paciente.convenio |should| equal_to('001')
+		paciente.convenio |should| equal_to(convenio)
+		paciente.prontuario |shoud| equal_to(prontuario)
 		
 		
 		

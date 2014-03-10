@@ -1,0 +1,26 @@
+import unittest
+from should_dsl import should
+from medico import Medico
+from consulta import Consulta
+
+class medicoSpec(unittest.TestCase):
+	def it_creates_a_Medico_object(self):
+		
+		
+		medico = Medico('001', 'Hugo', 'Rua B', '10', 'Centro', 'SJB', 'RJ', '98562312','00100200379', '08956782', '1245', 'pediatra', '11/05/1980')
+		medico.codMedico |should| equal_to('001')
+		medico.nome |should| equal_to('Hugo')
+		medico.rua |should| equal_to('Rua B')
+		medico.numero |should| equal_to('10')
+		medico.bairro |should| equal_to('Centro')
+		medico.cidade |should| equal_to('SJB')
+		medico.uf |should| equal_to('RJ')
+		medico.telefone |should| equal_to('98562312')
+		medico.cpf |should| equal_to('00100200379')
+		medico.rg |should| equal_to('08956782')
+		medico.crm |should| equal_to('1245')
+		medico.especialidade |should| equal_to('pediatra')
+		medico.dataNasc |should| equal_to('11/05/1980')
+		medico.consulta |should| equal_to([])
+
+

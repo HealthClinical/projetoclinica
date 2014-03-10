@@ -1,0 +1,22 @@
+class Consulta:
+	def  __init__(self,codConsulta, codPaciente, CodMedico, CodConsultorio, CodProntuario, data, hora, observacao, exames=[]):
+
+		self.codConsulta = codConsulta
+		self.codPaciente = codPaciente
+		self.codMedico = codMedico
+		self.codConsultorio = codConsultorio
+		self.codProntuario = codProntuario
+		self.data = data
+		self.hora = hora
+		self.observacao = observacao
+		self.exames = exames
+
+		
+	def inserirExame(self,exame):
+		self.exames.append(exame)
+
+	
+	def verificarExame(self,exame):
+		return exame in self.exames
+
+
