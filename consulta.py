@@ -10,16 +10,12 @@ class Consulta:
 		self.hora = hora
 		self.observacao = observacao
 		self.exames = exames
-
-
 		
 	def inserirExame(self,exame):
 		self.exames.append(exame)
-
 	
 	def verificarExame(self,exame):
 		return exame in self.exames
-
 
 	def consultarExame(self,data):
 		for exame in self.exames:
@@ -27,8 +23,6 @@ class Consulta:
 				return exame
 		return none	
 
-
-#done	
 
 
 	
