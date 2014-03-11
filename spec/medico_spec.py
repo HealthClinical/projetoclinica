@@ -12,7 +12,7 @@ class medicoSpec(unittest.TestCase):
 	def it_creates_a_Medico_object(self):
 		
 		
-		medico = Medico('001', 'Hugo', 'Rua B', '10', 'Centro', 'SJB', 'RJ', '98562312','00100200379', '08956782', '1245', 'pediatra', '11/05/1980')
+		medico = Medico('001', 'Hugo', 'Rua B', '10', 'Centro', 'SJB', 'RJ', '98562312','00100200379', '08956782', '1245', 'pediatra', '11/05/1980',[])
 		medico.codMedico |should| equal_to('001')
 		medico.nome |should| equal_to('Hugo')
 		medico.rua |should| equal_to('Rua B')

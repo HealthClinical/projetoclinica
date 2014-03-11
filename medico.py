@@ -23,4 +23,8 @@ class Medico:
 	def verificarConsulta(self,consulta):
 		return consulta in self.consultas
 
-	
+
+	def consultaPorMedico(self, codMedico):
+		for consulta in self.consultas:
+			if consulta.codMedico == codMedico:
+				return consulta
