@@ -25,7 +25,10 @@ class Consulta:
 		for exame in self.exames:
 			if exame.data == data:
 				return exame
-		return none		
+		return none	
+
+
+#done	
 
 
 	
